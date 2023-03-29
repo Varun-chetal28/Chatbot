@@ -1,11 +1,10 @@
-html,body{
-    height: 100%;
-}
+
 body{
     overflow: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(90deg, rgba(1,1,88,0.82),rgb(1,1,29));
-    transition: 1s all ease-in-out;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient( rgb(101, 101, 219) , pink);
 }
 
 .desc p{
@@ -22,21 +21,21 @@ body{
 .parent{
     position: relative;
     height: 100%;
-    padding: 0 7rem;
+    padding: 0 112px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .bot-img{
-    width: 20rem;
-    height: 20rem;
+    width: 320px;
+    height: 320px;
 }
 .child{
     box-shadow: 0 0 2px salmon;
     border-radius: 15px;
-    height: 30rem;
-    width: 16rem;
+    height: 480px;
+    width: 256px;
     margin: auto;
     background: white;
 }
@@ -44,7 +43,7 @@ body{
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    margin: 0 0.5rem;
+    margin: 0 8rem;
     border: 1px solid rgb(231,231,231);
     padding: 5px;
 }
@@ -55,7 +54,7 @@ body{
     align-items: center;
     border-bottom: 1px solid whitesmoke;
     background: white;
-    width: 16rem;
+    width: 256px;
     padding: 5px 0;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
@@ -66,6 +65,10 @@ body{
     display: flex;
     align-items: center;
 }
+.status{
+    position: absolute;
+    padding-left: 10px;
+}
 .header span{
     font-size: 13px;
     margin: 0;
@@ -73,8 +76,8 @@ body{
 }
 .refBtn{
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 16px;
+    right: 16px;
     background: none;
     border: none;
     border-radius: 50%;
@@ -88,7 +91,7 @@ body{
 .footer{
     position: absolute;
     bottom: 0;
-    width: 16rem;
+    width: 256px;
     background: white;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -123,7 +126,7 @@ body{
 	margin: 0 auto;
   position: absolute;
   bottom: 50px;
-width: 16rem;
+width: 256px;
 }
 
 .chat-window {
@@ -133,6 +136,9 @@ width: 16rem;
 	padding: 10px;
     max-height: 355px;
 }
+.chat-window::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+  }
 
 .messages {
 	margin-bottom: 10px;
@@ -165,17 +171,14 @@ button {
     opacity: 0;
     transition: all 0.7s ease-in-out;
     position: fixed;
-    top: 4rem;
-    right: 8rem;
+    top: 64px;
+    right: 128px;
     /* display: none; */
 }
 .online{
 color:lawngreen
 }
 
-.background {
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(90,121,167,1) 56%, rgba(0,212,255,1) 100%);
-}
 .messages div{
     background-color: rgb(202, 197, 197);
     padding: 2px 5px;
@@ -222,11 +225,18 @@ margin: 5px 0px;
 
 
 .start-btn{
-    position: absolute;
+    position: fixed;
     top: 540px;
-    left: 970px;
+    right: 130px;
 }
-
+.tooltiptext{
+    visibility: hidden;
+    position: relative;
+    top: 5px;
+}
+.start-btn:hover .tooltiptext {
+    visibility: visible;
+  }
 .show{
     transform: translateX(0);
     opacity: 1;
@@ -265,4 +275,50 @@ margin: 5px 0px;
     cursor: pointer;
     border: 1.5px solid black;
     
+}
+@media screen and (max-width: 1200px){
+    .child{
+        width: 600px;
+        height: 800px;
+    }
+    .header{
+        width: 600px;
+    }
+    .container{
+        width: 600px;
+    }
+    .footer{
+        width: 600px;
+    }
+    .start-btn{
+        top: 825px;
+        right: 150px;
+    }.tooltiptext{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px){
+        .child{
+            position: relative;
+            left: 100px;
+            width: 350px !important;
+            height: 500px;
+        }
+        .header{
+            width: 350px !important;
+        }
+        .container{
+            width: 350px !important;
+        }
+        .footer{
+            width: 350px !important;
+        }
+        .start-btn{
+            top: 525px;
+            right: 45px;
+        }
+        .tooltiptext{
+            display: none;
+        }
 }

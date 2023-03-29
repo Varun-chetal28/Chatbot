@@ -34,6 +34,9 @@ function getWeather(city) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            if(data.cod == "404"){
+                displayMessage("Please enter a valid city")
+            }
             const temp = data.main.temp;
             const weather = data.weather[0].description;
             console.log(weather);
@@ -55,7 +58,10 @@ function getTime(city){
     fetch(`https://api.api-ninjas.com/v1/timezone?city=${city}`, { headers: { "X-Api-Key": "JIr6no3LlAL1YKa61krISqTfoF7EOFkdrp2W7Ggj" },contentType: "application/json",})
         .then(response => response.json())
         .then(data => {
-            // console.log(data);
+            console.log(data);
+            if(data.timezone == ""){
+                displayMessage("Please enter a valid city")
+            }
             var time = new Date().toLocaleString("en-US", { timeZone: data.timezone, 
                 timeStyle: "medium",
                 hourCycle: "h12", });
@@ -139,10 +145,10 @@ form.addEventListener('submit', event => {
         console.log(city);
         getTime(city);
     }
-    else 
-    {
-        displayMessage("Please enter a valid question");
-    }
+    const city = message;
+    // if{
+    //     city != 
+    // }
     // else if (message.toLowerCase().includes('hello') || message.toLowerCase() == 'hi' || message.toLowerCase().includes('hey')) {
     //     displayMessage('Hi there!');
     // }
